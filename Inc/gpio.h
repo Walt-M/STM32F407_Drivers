@@ -89,3 +89,6 @@ void GPIO_Init(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN, GPIO_Config *Config);
 void GPIO_DeInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN);
 
 void GPIO_Write(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN, GPIO_PinState value);
+
+GPIO_PinState GPIO_GetState(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN);
+GPIO_PinState GPIO_GetOutput(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN);
