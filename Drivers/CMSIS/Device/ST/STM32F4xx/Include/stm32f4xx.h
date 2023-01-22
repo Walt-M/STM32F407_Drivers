@@ -279,13 +279,6 @@ typedef enum
     } while ((__STREXH(val,(__IO uint16_t *)&(REG))) != 0U);               \
   } while(0)
 
-/**
-  * @}
-  */
-
-#if defined (USE_HAL_DRIVER)
- #include "stm32f4xx_hal.h"
-#endif /* USE_HAL_DRIVER */
 
 #ifdef __cplusplus
 }

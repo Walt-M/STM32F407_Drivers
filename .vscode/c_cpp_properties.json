@@ -21,8 +21,7 @@
             "compilerArgs": [
                 "-mcpu=cortex-m4",
                 "-mthumb"
-            
-            ],
+            ]
         }
     ],
     "version": 4
