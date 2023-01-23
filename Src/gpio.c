@@ -53,7 +53,8 @@ GPIO_PinState GPIO_GetState(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
 
 //Bug: An and with the max bits a register can hold does not equal an integer like GPIO_MODE_ALTERNATE
 GPIO_PinState GPIO_GetOutput(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
-    if (((GPIOx->MODER & GPIO_TYPE) == GPIO_MODE_OUTPUT) || ((GPIOx->MODER & GPIO_TYPE) == GPIO_MODE_ALTERNATE))
+    if (((GPIOx->MODER & GPIO_TYPE) == (GPIO_MODE_OUTPUT << GPIO_PIN * 2U)) 
+    || ((GPIOx->MODER & GPIO_TYPE) == (GPIO_MODE_ALTERNATE << GPIO_PIN * 2U)))
     {
         return GPIOx->ODR & (1 << GPIO_PIN);
     }
