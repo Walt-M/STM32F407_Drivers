@@ -22,40 +22,7 @@
 #include "gpio.h"
 #include "rcc.h"
 #include <stdlib.h>
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
 
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -65,9 +32,11 @@ int main(void)
 {
   GPIO_Config *board_LED_Config = malloc(sizeof(GPIO_Config));
   GPIO_Config *board_Button_Config = malloc(sizeof(GPIO_Config));
+  EXTI_Config *board_Button_EXTI = malloc(sizeof(EXTI_Config));
 
   __GPIOD_CLK_ENABLE;
   __GPIOA_CLK_ENABLE;
+  __SYSCFG_CLK_ENABLE;
 
   board_LED_Config->Mode = GPIO_MODE_OUTPUT;
   board_LED_Config->Type = GPIO_TYPE_PP;
@@ -83,6 +52,8 @@ int main(void)
   board_Button_Config->LOCK = GPIO_LOCK_OFF;
   board_Button_Config->ALT = GPIO_ALT_AF0;
 
+  board_Button_EXTI->Mode = EXTI_MODE_INTERUPT;
+  board_Button_EXTI->Trigger = EXTI_TRIGGER_FALLING;
 
   GPIO_Init(BOARD_LED_Port, BOARD_GREEN_LED_Pin, board_LED_Config);
   GPIO_Init(BOARD_LED_Port, BOARD_ORANGE_LED_Pin, board_LED_Config);
@@ -90,15 +61,25 @@ int main(void)
   GPIO_Init(BOARD_LED_Port, BOARD_BLUE_LED_Pin, board_LED_Config);
 
   GPIO_Init(BOARD_B1_Port, BOARD_USER_B1_Pin, board_Button_Config);
+  GPIO_InteruptEnable(BOARD_B1_Port, BOARD_USER_B1_Pin, board_Button_EXTI);
+
 
   while (1)
   {
-    if (GPIO_GetState(BOARD_B1_Port, BOARD_USER_B1_Pin) == GPIO_PIN_ON){
-      GPIO_Write(BOARD_LED_Port, BOARD_GREEN_LED_Pin, GPIO_PIN_ON);
-      GPIO_Write(BOARD_LED_Port, BOARD_ORANGE_LED_Pin, GPIO_PIN_ON);
-      GPIO_Write(BOARD_LED_Port, BOARD_RED_LED_Pin, GPIO_PIN_ON);
-      GPIO_Write(BOARD_LED_Port, BOARD_BLUE_LED_Pin, GPIO_PIN_ON);
-    }
+    int sum = 1 + 1;
   }
-  /* USER CODE END 3 */
+}
+
+void EXTI0_IRQHandler(void)
+{
+  
+  GPIO_Toggle(BOARD_LED_Port, BOARD_GREEN_LED_Pin);
+  for(int i = 0; i < 100000; i++);
+  GPIO_Toggle(BOARD_LED_Port, BOARD_ORANGE_LED_Pin);
+  for(int i = 0; i < 100000; i++);
+  GPIO_Toggle(BOARD_LED_Port, BOARD_RED_LED_Pin);
+  for(int i = 0; i < 100000; i++);
+  GPIO_Toggle(BOARD_LED_Port, BOARD_BLUE_LED_Pin);
+  for(int i = 0; i < 100000; i++);
+  EXTI->PR |= (1 << 0);
 }

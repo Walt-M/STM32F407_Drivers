@@ -80,6 +80,10 @@ Discarded input sections
  .bss           0x00000000        0x0 build/gpio.o
  .text.GPIO_DeInit
                 0x00000000       0x66 build/gpio.o
+ .text.GPIO_Write
+                0x00000000        0xa build/gpio.o
+ .text.GPIO_GetState
+                0x00000000        0xc build/gpio.o
  .text.GPIO_GetOutput
                 0x00000000       0x32 build/gpio.o
  .text          0x00000000        0x0 build/system_stm32f4xx.o
@@ -362,7 +366,7 @@ LOAD c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-ea
                 0x08000000                g_pfnVectors
                 0x08000188                . = ALIGN (0x4)
 
-.text           0x08000188      0x478
+.text           0x08000188      0x648
                 0x08000188                . = ALIGN (0x4)
  *(.text)
  *(.text*)
@@ -374,207 +378,210 @@ LOAD c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-ea
                 0x080001c8       0x28 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .text.frame_dummy
                 0x080001f0       0x24 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
- .text.main     0x08000214       0xb8 build/gpio_test.o
+ .text.main     0x08000214       0xa8 build/gpio_test.o
                 0x08000214                main
+ .text.EXTI0_IRQHandler
+                0x080002bc       0x6c build/gpio_test.o
+                0x080002bc                EXTI0_IRQHandler
  .text.GPIO_Init
-                0x080002cc       0xba build/gpio.o
-                0x080002cc                GPIO_Init
- .text.GPIO_Write
-                0x08000386        0xa build/gpio.o
-                0x08000386                GPIO_Write
- .text.GPIO_GetState
-                0x08000390        0xc build/gpio.o
-                0x08000390                GPIO_GetState
+                0x08000328       0xba build/gpio.o
+                0x08000328                GPIO_Init
+ *fill*         0x080003e2        0x2 
+ .text.GPIO_InteruptEnable
+                0x080003e4      0x17c build/gpio.o
+                0x080003e4                GPIO_InteruptEnable
+ .text.GPIO_Toggle
+                0x08000560        0xc build/gpio.o
+                0x08000560                GPIO_Toggle
  .text.SystemInit
-                0x0800039c       0x14 build/system_stm32f4xx.o
-                0x0800039c                SystemInit
+                0x0800056c       0x14 build/system_stm32f4xx.o
+                0x0800056c                SystemInit
  .text.Reset_Handler
-                0x080003b0       0x50 build/startup_stm32f407xx.o
-                0x080003b0                Reset_Handler
+                0x08000580       0x50 build/startup_stm32f407xx.o
+                0x08000580                Reset_Handler
  .text.Default_Handler
-                0x08000400        0x2 build/startup_stm32f407xx.o
-                0x08000400                RTC_Alarm_IRQHandler
-                0x08000400                HASH_RNG_IRQHandler
-                0x08000400                EXTI2_IRQHandler
-                0x08000400                TIM8_CC_IRQHandler
-                0x08000400                DebugMon_Handler
-                0x08000400                TIM1_CC_IRQHandler
-                0x08000400                DMA2_Stream5_IRQHandler
-                0x08000400                HardFault_Handler
-                0x08000400                DMA1_Stream5_IRQHandler
-                0x08000400                SysTick_Handler
-                0x08000400                PVD_IRQHandler
-                0x08000400                SDIO_IRQHandler
-                0x08000400                TAMP_STAMP_IRQHandler
-                0x08000400                PendSV_Handler
-                0x08000400                NMI_Handler
-                0x08000400                CAN2_RX1_IRQHandler
-                0x08000400                EXTI3_IRQHandler
-                0x08000400                TIM8_TRG_COM_TIM14_IRQHandler
-                0x08000400                TIM1_UP_TIM10_IRQHandler
-                0x08000400                TIM8_UP_TIM13_IRQHandler
-                0x08000400                I2C3_ER_IRQHandler
-                0x08000400                EXTI0_IRQHandler
-                0x08000400                I2C2_EV_IRQHandler
-                0x08000400                DMA1_Stream2_IRQHandler
-                0x08000400                CAN1_RX0_IRQHandler
-                0x08000400                FPU_IRQHandler
-                0x08000400                OTG_HS_WKUP_IRQHandler
-                0x08000400                UsageFault_Handler
-                0x08000400                CAN2_SCE_IRQHandler
-                0x08000400                DMA2_Stream2_IRQHandler
-                0x08000400                SPI1_IRQHandler
-                0x08000400                TIM6_DAC_IRQHandler
-                0x08000400                TIM1_BRK_TIM9_IRQHandler
-                0x08000400                DCMI_IRQHandler
-                0x08000400                CAN2_RX0_IRQHandler
-                0x08000400                DMA2_Stream3_IRQHandler
-                0x08000400                USART6_IRQHandler
-                0x08000400                USART3_IRQHandler
-                0x08000400                CAN1_RX1_IRQHandler
-                0x08000400                UART5_IRQHandler
-                0x08000400                DMA2_Stream0_IRQHandler
-                0x08000400                TIM4_IRQHandler
-                0x08000400                I2C1_EV_IRQHandler
-                0x08000400                DMA1_Stream6_IRQHandler
-                0x08000400                DMA1_Stream1_IRQHandler
-                0x08000400                UART4_IRQHandler
-                0x08000400                TIM3_IRQHandler
-                0x08000400                RCC_IRQHandler
-                0x08000400                TIM8_BRK_TIM12_IRQHandler
-                0x08000400                Default_Handler
-                0x08000400                EXTI15_10_IRQHandler
-                0x08000400                ADC_IRQHandler
-                0x08000400                DMA1_Stream7_IRQHandler
-                0x08000400                TIM7_IRQHandler
-                0x08000400                CAN2_TX_IRQHandler
-                0x08000400                TIM5_IRQHandler
-                0x08000400                DMA2_Stream7_IRQHandler
-                0x08000400                I2C3_EV_IRQHandler
-                0x08000400                EXTI9_5_IRQHandler
-                0x08000400                RTC_WKUP_IRQHandler
-                0x08000400                ETH_WKUP_IRQHandler
-                0x08000400                SPI2_IRQHandler
-                0x08000400                OTG_HS_EP1_IN_IRQHandler
-                0x08000400                MemManage_Handler
-                0x08000400                DMA1_Stream0_IRQHandler
-                0x08000400                CAN1_TX_IRQHandler
-                0x08000400                SVC_Handler
-                0x08000400                EXTI4_IRQHandler
-                0x08000400                FSMC_IRQHandler
-                0x08000400                ETH_IRQHandler
-                0x08000400                OTG_HS_EP1_OUT_IRQHandler
-                0x08000400                WWDG_IRQHandler
-                0x08000400                TIM2_IRQHandler
-                0x08000400                OTG_FS_WKUP_IRQHandler
-                0x08000400                TIM1_TRG_COM_TIM11_IRQHandler
-                0x08000400                OTG_HS_IRQHandler
-                0x08000400                EXTI1_IRQHandler
-                0x08000400                USART2_IRQHandler
-                0x08000400                I2C2_ER_IRQHandler
-                0x08000400                DMA2_Stream1_IRQHandler
-                0x08000400                CAN1_SCE_IRQHandler
-                0x08000400                FLASH_IRQHandler
-                0x08000400                DMA2_Stream4_IRQHandler
-                0x08000400                BusFault_Handler
-                0x08000400                USART1_IRQHandler
-                0x08000400                OTG_FS_IRQHandler
-                0x08000400                SPI3_IRQHandler
-                0x08000400                DMA1_Stream4_IRQHandler
-                0x08000400                I2C1_ER_IRQHandler
-                0x08000400                DMA2_Stream6_IRQHandler
-                0x08000400                DMA1_Stream3_IRQHandler
- *fill*         0x08000402        0x2 
- .text.malloc   0x08000404       0x10 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-malloc.o)
-                0x08000404                malloc
+                0x080005d0        0x2 build/startup_stm32f407xx.o
+                0x080005d0                RTC_Alarm_IRQHandler
+                0x080005d0                HASH_RNG_IRQHandler
+                0x080005d0                EXTI2_IRQHandler
+                0x080005d0                TIM8_CC_IRQHandler
+                0x080005d0                DebugMon_Handler
+                0x080005d0                TIM1_CC_IRQHandler
+                0x080005d0                DMA2_Stream5_IRQHandler
+                0x080005d0                HardFault_Handler
+                0x080005d0                DMA1_Stream5_IRQHandler
+                0x080005d0                SysTick_Handler
+                0x080005d0                PVD_IRQHandler
+                0x080005d0                SDIO_IRQHandler
+                0x080005d0                TAMP_STAMP_IRQHandler
+                0x080005d0                PendSV_Handler
+                0x080005d0                NMI_Handler
+                0x080005d0                CAN2_RX1_IRQHandler
+                0x080005d0                EXTI3_IRQHandler
+                0x080005d0                TIM8_TRG_COM_TIM14_IRQHandler
+                0x080005d0                TIM1_UP_TIM10_IRQHandler
+                0x080005d0                TIM8_UP_TIM13_IRQHandler
+                0x080005d0                I2C3_ER_IRQHandler
+                0x080005d0                I2C2_EV_IRQHandler
+                0x080005d0                DMA1_Stream2_IRQHandler
+                0x080005d0                CAN1_RX0_IRQHandler
+                0x080005d0                FPU_IRQHandler
+                0x080005d0                OTG_HS_WKUP_IRQHandler
+                0x080005d0                UsageFault_Handler
+                0x080005d0                CAN2_SCE_IRQHandler
+                0x080005d0                DMA2_Stream2_IRQHandler
+                0x080005d0                SPI1_IRQHandler
+                0x080005d0                TIM6_DAC_IRQHandler
+                0x080005d0                TIM1_BRK_TIM9_IRQHandler
+                0x080005d0                DCMI_IRQHandler
+                0x080005d0                CAN2_RX0_IRQHandler
+                0x080005d0                DMA2_Stream3_IRQHandler
+                0x080005d0                USART6_IRQHandler
+                0x080005d0                USART3_IRQHandler
+                0x080005d0                CAN1_RX1_IRQHandler
+                0x080005d0                UART5_IRQHandler
+                0x080005d0                DMA2_Stream0_IRQHandler
+                0x080005d0                TIM4_IRQHandler
+                0x080005d0                I2C1_EV_IRQHandler
+                0x080005d0                DMA1_Stream6_IRQHandler
+                0x080005d0                DMA1_Stream1_IRQHandler
+                0x080005d0                UART4_IRQHandler
+                0x080005d0                TIM3_IRQHandler
+                0x080005d0                RCC_IRQHandler
+                0x080005d0                TIM8_BRK_TIM12_IRQHandler
+                0x080005d0                Default_Handler
+                0x080005d0                EXTI15_10_IRQHandler
+                0x080005d0                ADC_IRQHandler
+                0x080005d0                DMA1_Stream7_IRQHandler
+                0x080005d0                TIM7_IRQHandler
+                0x080005d0                CAN2_TX_IRQHandler
+                0x080005d0                TIM5_IRQHandler
+                0x080005d0                DMA2_Stream7_IRQHandler
+                0x080005d0                I2C3_EV_IRQHandler
+                0x080005d0                EXTI9_5_IRQHandler
+                0x080005d0                RTC_WKUP_IRQHandler
+                0x080005d0                ETH_WKUP_IRQHandler
+                0x080005d0                SPI2_IRQHandler
+                0x080005d0                OTG_HS_EP1_IN_IRQHandler
+                0x080005d0                MemManage_Handler
+                0x080005d0                DMA1_Stream0_IRQHandler
+                0x080005d0                CAN1_TX_IRQHandler
+                0x080005d0                SVC_Handler
+                0x080005d0                EXTI4_IRQHandler
+                0x080005d0                FSMC_IRQHandler
+                0x080005d0                ETH_IRQHandler
+                0x080005d0                OTG_HS_EP1_OUT_IRQHandler
+                0x080005d0                WWDG_IRQHandler
+                0x080005d0                TIM2_IRQHandler
+                0x080005d0                OTG_FS_WKUP_IRQHandler
+                0x080005d0                TIM1_TRG_COM_TIM11_IRQHandler
+                0x080005d0                OTG_HS_IRQHandler
+                0x080005d0                EXTI1_IRQHandler
+                0x080005d0                USART2_IRQHandler
+                0x080005d0                I2C2_ER_IRQHandler
+                0x080005d0                DMA2_Stream1_IRQHandler
+                0x080005d0                CAN1_SCE_IRQHandler
+                0x080005d0                FLASH_IRQHandler
+                0x080005d0                DMA2_Stream4_IRQHandler
+                0x080005d0                BusFault_Handler
+                0x080005d0                USART1_IRQHandler
+                0x080005d0                OTG_FS_IRQHandler
+                0x080005d0                SPI3_IRQHandler
+                0x080005d0                DMA1_Stream4_IRQHandler
+                0x080005d0                I2C1_ER_IRQHandler
+                0x080005d0                DMA2_Stream6_IRQHandler
+                0x080005d0                DMA1_Stream3_IRQHandler
+ *fill*         0x080005d2        0x2 
+ .text.malloc   0x080005d4       0x10 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-malloc.o)
+                0x080005d4                malloc
  .text.sbrk_aligned
-                0x08000414       0x44 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+                0x080005e4       0x44 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
  .text._malloc_r
-                0x08000458       0xf0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
-                0x08000458                _malloc_r
+                0x08000628       0xf0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+                0x08000628                _malloc_r
  .text.__malloc_lock
-                0x08000548        0xc c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
-                0x08000548                __malloc_lock
+                0x08000718        0xc c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+                0x08000718                __malloc_lock
  .text.__malloc_unlock
-                0x08000554        0xc c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
-                0x08000554                __malloc_unlock
- .text._sbrk_r  0x08000560       0x20 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
-                0x08000560                _sbrk_r
+                0x08000724        0xc c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+                0x08000724                __malloc_unlock
+ .text._sbrk_r  0x08000730       0x20 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+                0x08000730                _sbrk_r
  .text.__libc_init_array
-                0x08000580       0x48 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
-                0x08000580                __libc_init_array
+                0x08000750       0x48 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+                0x08000750                __libc_init_array
  .text.__retarget_lock_acquire_recursive
-                0x080005c8        0x2 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
-                0x080005c8                __retarget_lock_acquire_recursive
+                0x08000798        0x2 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+                0x08000798                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x080005ca        0x2 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
-                0x080005ca                __retarget_lock_release_recursive
- .text._sbrk    0x080005cc       0x1c c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libnosys.a(sbrk.o)
-                0x080005cc                _sbrk
+                0x0800079a        0x2 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+                0x0800079a                __retarget_lock_release_recursive
+ .text._sbrk    0x0800079c       0x1c c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libnosys.a(sbrk.o)
+                0x0800079c                _sbrk
  *(.glue_7)
- .glue_7        0x080005e8        0x0 linker stubs
+ .glue_7        0x080007b8        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x080005e8        0x0 linker stubs
+ .glue_7t       0x080007b8        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x080005e8        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x080007b8        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x080005e8        0x4 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x080005e8                _init
- .init          0x080005ec        0x8 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x080007b8        0x4 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x080007b8                _init
+ .init          0x080007bc        0x8 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x080005f4        0x4 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x080005f4                _fini
- .fini          0x080005f8        0x8 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtn.o
-                0x08000600                . = ALIGN (0x4)
-                0x08000600                _etext = .
+ .fini          0x080007c4        0x4 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x080007c4                _fini
+ .fini          0x080007c8        0x8 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtn.o
+                0x080007d0                . = ALIGN (0x4)
+                0x080007d0                _etext = .
 
-.vfp11_veneer   0x08000600        0x0
- .vfp11_veneer  0x08000600        0x0 linker stubs
+.vfp11_veneer   0x080007d0        0x0
+ .vfp11_veneer  0x080007d0        0x0 linker stubs
 
-.v4_bx          0x08000600        0x0
- .v4_bx         0x08000600        0x0 linker stubs
+.v4_bx          0x080007d0        0x0
+ .v4_bx         0x080007d0        0x0 linker stubs
 
-.iplt           0x08000600        0x0
- .iplt          0x08000600        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x080007d0        0x0
+ .iplt          0x080007d0        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rel.dyn        0x08000600        0x0
- .rel.iplt      0x08000600        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x080007d0        0x0
+ .rel.iplt      0x080007d0        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x08000600        0x0
-                0x08000600                . = ALIGN (0x4)
+.rodata         0x080007d0        0x0
+                0x080007d0                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
-                0x08000600                . = ALIGN (0x4)
+                0x080007d0                . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08000600        0x0
-                0x08000600                __exidx_start = .
+.ARM            0x080007d0        0x0
+                0x080007d0                __exidx_start = .
  *(.ARM.exidx*)
-                0x08000600                __exidx_end = .
+                0x080007d0                __exidx_end = .
 
-.preinit_array  0x08000600        0x0
-                0x08000600                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x080007d0        0x0
+                0x080007d0                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08000600                PROVIDE (__preinit_array_end = .)
+                0x080007d0                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x08000600        0x4
-                0x08000600                PROVIDE (__init_array_start = .)
+.init_array     0x080007d0        0x4
+                0x080007d0                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x08000600        0x4 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08000604                PROVIDE (__init_array_end = .)
+ .init_array    0x080007d0        0x4 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080007d4                PROVIDE (__init_array_end = .)
 
-.fini_array     0x08000604        0x4
+.fini_array     0x080007d4        0x4
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08000604        0x4 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x080007d4        0x4 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x08000608                _sidata = LOADADDR (.data)
+                0x080007d8                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x50 load address 0x08000608
+.data           0x20000000       0x50 load address 0x080007d8
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -587,19 +594,19 @@ LOAD c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-ea
                 0x20000004                _impure_data
                 0x20000050                . = ALIGN (0x4)
                 0x20000050                _edata = .
-                0x08000658                _siccmram = LOADADDR (.ccmram)
+                0x08000828                _siccmram = LOADADDR (.ccmram)
 
 .tm_clone_table
-                0x20000050        0x0 load address 0x08000658
+                0x20000050        0x0 load address 0x08000828
  .tm_clone_table
                 0x20000050        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x20000050        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x20000050        0x0 load address 0x08000658
+.igot.plt       0x20000050        0x0 load address 0x08000828
  .igot.plt      0x20000050        0x0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.ccmram         0x10000000        0x0 load address 0x08000658
+.ccmram         0x10000000        0x0 load address 0x08000828
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _sccmram = .
  *(.ccmram)
@@ -699,53 +706,53 @@ LOAD c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-ea
 LOAD c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libm.a
 LOAD c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000      0xf76
- .debug_info    0x00000000      0x638 build/gpio_test.o
- .debug_info    0x00000638      0x362 build/gpio.o
- .debug_info    0x0000099a      0x5ac build/system_stm32f4xx.o
- .debug_info    0x00000f46       0x30 build/startup_stm32f407xx.o
+.debug_info     0x00000000     0x1659
+ .debug_info    0x00000000      0x788 build/gpio_test.o
+ .debug_info    0x00000788      0x8f5 build/gpio.o
+ .debug_info    0x0000107d      0x5ac build/system_stm32f4xx.o
+ .debug_info    0x00001629       0x30 build/startup_stm32f407xx.o
 
-.debug_abbrev   0x00000000      0x415
- .debug_abbrev  0x00000000      0x178 build/gpio_test.o
- .debug_abbrev  0x00000178      0x165 build/gpio.o
- .debug_abbrev  0x000002dd      0x11b build/system_stm32f4xx.o
- .debug_abbrev  0x000003f8       0x1d build/startup_stm32f407xx.o
+.debug_abbrev   0x00000000      0x47f
+ .debug_abbrev  0x00000000      0x1ad build/gpio_test.o
+ .debug_abbrev  0x000001ad      0x19a build/gpio.o
+ .debug_abbrev  0x00000347      0x11b build/system_stm32f4xx.o
+ .debug_abbrev  0x00000462       0x1d build/startup_stm32f407xx.o
 
-.debug_loc      0x00000000      0x34e
- .debug_loc     0x00000000       0x64 build/gpio_test.o
- .debug_loc     0x00000064      0x192 build/gpio.o
- .debug_loc     0x000001f6      0x158 build/system_stm32f4xx.o
+.debug_loc      0x00000000      0x69c
+ .debug_loc     0x00000000      0x132 build/gpio_test.o
+ .debug_loc     0x00000132      0x412 build/gpio.o
+ .debug_loc     0x00000544      0x158 build/system_stm32f4xx.o
 
-.debug_aranges  0x00000000       0xb0
+.debug_aranges  0x00000000       0xc8
  .debug_aranges
-                0x00000000       0x20 build/gpio_test.o
+                0x00000000       0x28 build/gpio_test.o
  .debug_aranges
-                0x00000020       0x40 build/gpio.o
+                0x00000028       0x50 build/gpio.o
  .debug_aranges
-                0x00000060       0x28 build/system_stm32f4xx.o
+                0x00000078       0x28 build/system_stm32f4xx.o
  .debug_aranges
-                0x00000088       0x28 build/startup_stm32f407xx.o
+                0x000000a0       0x28 build/startup_stm32f407xx.o
 
-.debug_ranges   0x00000000       0x78
- .debug_ranges  0x00000000       0x10 build/gpio_test.o
- .debug_ranges  0x00000010       0x30 build/gpio.o
- .debug_ranges  0x00000040       0x18 build/system_stm32f4xx.o
- .debug_ranges  0x00000058       0x20 build/startup_stm32f407xx.o
+.debug_ranges   0x00000000       0x90
+ .debug_ranges  0x00000000       0x18 build/gpio_test.o
+ .debug_ranges  0x00000018       0x40 build/gpio.o
+ .debug_ranges  0x00000058       0x18 build/system_stm32f4xx.o
+ .debug_ranges  0x00000070       0x20 build/startup_stm32f407xx.o
 
-.debug_line     0x00000000      0x95c
- .debug_line    0x00000000      0x2fe build/gpio_test.o
- .debug_line    0x000002fe      0x364 build/gpio.o
- .debug_line    0x00000662      0x284 build/system_stm32f4xx.o
- .debug_line    0x000008e6       0x76 build/startup_stm32f407xx.o
+.debug_line     0x00000000      0xbc8
+ .debug_line    0x00000000      0x3b9 build/gpio_test.o
+ .debug_line    0x000003b9      0x504 build/gpio.o
+ .debug_line    0x000008bd      0x295 build/system_stm32f4xx.o
+ .debug_line    0x00000b52       0x76 build/startup_stm32f407xx.o
 
-.debug_str      0x00000000      0x45a
- .debug_str     0x00000000      0x310 build/gpio_test.o
-                                0x365 (size before relaxing)
- .debug_str     0x00000310       0x3b build/gpio.o
-                                0x252 (size before relaxing)
- .debug_str     0x0000034b       0xdd build/system_stm32f4xx.o
-                                0x33b (size before relaxing)
- .debug_str     0x00000428       0x32 build/startup_stm32f407xx.o
+.debug_str      0x00000000      0xa51
+ .debug_str     0x00000000      0x344 build/gpio_test.o
+                                0x399 (size before relaxing)
+ .debug_str     0x00000344      0x5f7 build/gpio.o
+                                0x859 (size before relaxing)
+ .debug_str     0x0000093b       0xe4 build/system_stm32f4xx.o
+                                0x34c (size before relaxing)
+ .debug_str     0x00000a1f       0x32 build/startup_stm32f407xx.o
                                  0x59 (size before relaxing)
 
 .comment        0x00000000       0x45
@@ -754,19 +761,19 @@ LOAD c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-ea
  .comment       0x00000045       0x46 build/gpio.o
  .comment       0x00000045       0x46 build/system_stm32f4xx.o
 
-.debug_frame    0x00000000      0x424
- .debug_frame   0x00000000       0x30 build/gpio_test.o
- .debug_frame   0x00000030       0x74 build/gpio.o
- .debug_frame   0x000000a4       0x30 build/system_stm32f4xx.o
- .debug_frame   0x000000d4       0x30 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-malloc.o)
- .debug_frame   0x00000104       0x4c c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
- .debug_frame   0x00000150       0x30 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
- .debug_frame   0x00000180      0x144 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x000002c4       0x38 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
- .debug_frame   0x000002fc       0x2c c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
- .debug_frame   0x00000328       0x2c c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
- .debug_frame   0x00000354       0xb0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
- .debug_frame   0x00000404       0x20 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libnosys.a(sbrk.o)
+.debug_frame    0x00000000      0x468
+ .debug_frame   0x00000000       0x48 build/gpio_test.o
+ .debug_frame   0x00000048       0xa0 build/gpio.o
+ .debug_frame   0x000000e8       0x30 build/system_stm32f4xx.o
+ .debug_frame   0x00000118       0x30 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-malloc.o)
+ .debug_frame   0x00000148       0x4c c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x00000194       0x30 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x000001c4      0x144 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00000308       0x38 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x00000340       0x2c c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x0000036c       0x2c c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+ .debug_frame   0x00000398       0xb0 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x00000448       0x20 c:/users/walte/tools/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m+fp/hard\libnosys.a(sbrk.o)
 
 Cross Reference Table
 
@@ -804,7 +811,7 @@ DebugMon_Handler                                  build/startup_stm32f407xx.o
 Default_Handler                                   build/startup_stm32f407xx.o
 ETH_IRQHandler                                    build/startup_stm32f407xx.o
 ETH_WKUP_IRQHandler                               build/startup_stm32f407xx.o
-EXTI0_IRQHandler                                  build/startup_stm32f407xx.o
+EXTI0_IRQHandler                                  build/gpio_test.o
 EXTI15_10_IRQHandler                              build/startup_stm32f407xx.o
 EXTI1_IRQHandler                                  build/startup_stm32f407xx.o
 EXTI2_IRQHandler                                  build/startup_stm32f407xx.o
@@ -817,11 +824,13 @@ FSMC_IRQHandler                                   build/startup_stm32f407xx.o
 GPIO_DeInit                                       build/gpio.o
 GPIO_GetOutput                                    build/gpio.o
 GPIO_GetState                                     build/gpio.o
-                                                  build/gpio_test.o
 GPIO_Init                                         build/gpio.o
                                                   build/gpio_test.o
-GPIO_Write                                        build/gpio.o
+GPIO_InteruptEnable                               build/gpio.o
                                                   build/gpio_test.o
+GPIO_Toggle                                       build/gpio.o
+                                                  build/gpio_test.o
+GPIO_Write                                        build/gpio.o
 HASH_RNG_IRQHandler                               build/startup_stm32f407xx.o
 HardFault_Handler                                 build/startup_stm32f407xx.o
 I2C1_ER_IRQHandler                                build/startup_stm32f407xx.o

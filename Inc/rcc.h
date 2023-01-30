@@ -20,3 +20,6 @@
 #define __GPIOG_CLK_DISABLE RCC->AHB1ENR &= ~(1 << 6)
 #define __GPIOH_CLK_DISABLE RCC->AHB1ENR &= ~(1 << 7)
 #define __GPIOI_CLK_DISABLE RCC->AHB1ENR &= ~(1 << 8)
+
+#define __SYSCFG_CLK_ENABLE RCC->APB2ENR |= (1 << 14)
+#define __SYSCFG_CLK_DISABLE RCC->APB2ENR &= ~(1 << 14)

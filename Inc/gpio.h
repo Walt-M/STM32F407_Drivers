@@ -1,4 +1,5 @@
 #include "stm32f407xx.h"
+#include "exti.h"
 
 typedef struct
 {
@@ -60,7 +61,7 @@ typedef struct
 #define GPIO_ALT 15
 
 
-//Copied directly from stm32f4xx_hal_gpio.h
+//Copied mostly from stm32f4xx_hal_gpio.h
 #define GPIO_PIN_0                 0  /* Pin 0 selected    */
 #define GPIO_PIN_1                 1  /* Pin 1 selected    */
 #define GPIO_PIN_2                 2  /* Pin 2 selected    */
@@ -78,6 +79,16 @@ typedef struct
 #define GPIO_PIN_14                14  /* Pin 14 selected   */
 #define GPIO_PIN_15                15  /* Pin 15 selected   */
 
+#define GPIO_PORT_A                 0  /* PORT A selected    */
+#define GPIO_PORT_B                 1  /* PORT B selected    */
+#define GPIO_PORT_C                 2  /* PORT C selected    */
+#define GPIO_PORT_D                 3  /* PORT D selected    */
+#define GPIO_PORT_E                 4  /* PORT E selected    */
+#define GPIO_PORT_F                 5  /* PORT F selected    */
+#define GPIO_PORT_G                 6  /* PORT G selected    */
+#define GPIO_PORT_H                 7  /* PORT H selected    */
+#define GPIO_PORT_I                 8  /* PORT I selected    */
+
 //Copied mostly from stm32f4xx_hal_gpio.h
 typedef enum
 {
@@ -88,7 +99,11 @@ typedef enum
 void GPIO_Init(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN, GPIO_Config *Config);
 void GPIO_DeInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN);
 
+void GPIO_InteruptEnable(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, EXTI_Config *EXTI_Cfg);
+
+
 void GPIO_Write(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN, GPIO_PinState value);
+void GPIO_Toggle(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN);
 
 GPIO_PinState GPIO_GetState(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN);
 GPIO_PinState GPIO_GetOutput(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN);
