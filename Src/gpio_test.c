@@ -24,6 +24,7 @@
 #include <stdlib.h>
 
 
+
 /**
   * @brief  The application entry point.
   * @retval int
@@ -72,7 +73,6 @@ int main(void)
 
 void EXTI0_IRQHandler(void)
 {
-  
   GPIO_Toggle(BOARD_LED_Port, BOARD_GREEN_LED_Pin);
   for(int i = 0; i < 100000; i++);
   GPIO_Toggle(BOARD_LED_Port, BOARD_ORANGE_LED_Pin);

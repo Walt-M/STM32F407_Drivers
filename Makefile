@@ -38,6 +38,7 @@ BUILD_DIR = build
 C_SOURCES =  \
 Src/gpio_test.c \
 Src/gpio.c \
+Src/spi.c \
 Drivers/CMSIS/Source/system_stm32f4xx.c
 
 # ASM sources

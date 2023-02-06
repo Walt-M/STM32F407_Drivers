@@ -23,3 +23,10 @@
 
 #define __SYSCFG_CLK_ENABLE RCC->APB2ENR |= (1 << 14)
 #define __SYSCFG_CLK_DISABLE RCC->APB2ENR &= ~(1 << 14)
+
+#define __SPI1_CLK_ENABLE RCC->APB2ENR |= (1 << 12)
+#define __SPI2_CLK_ENABLE RCC->APB1ENR |= (1 << 14)
+#define __SPI3_CLK_ENABLE RCC->APB1ENR |= (1 << 15)
+#define __SPI1_CLK_DISABLE RCC->APB2ENR &= ~(1 << 12)
+#define __SPI2_CLK_DISABLE RCC->APB1ENR &= ~(1 << 14)
+#define __SPI3_CLK_DISABLE RCC->APB1ENR &= ~(1 << 15)
