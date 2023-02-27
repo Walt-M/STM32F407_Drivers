@@ -36,7 +36,7 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
-Src/gpio_test.c \
+Src/main_spi_test.c \
 Src/gpio.c \
 Src/spi.c \
 Drivers/CMSIS/Source/system_stm32f4xx.c
@@ -97,7 +97,6 @@ AS_INCLUDES =
 # C includes
 C_INCLUDES =  \
 -IInc \
--IUserFiles/Inc \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
 -IDrivers/CMSIS/Include
 

@@ -1,5 +1,4 @@
 #include "stm32f407xx.h"
-#include "gpio.h"
 
 
 //typedef struct
@@ -70,8 +69,8 @@ can be set to*/
 #define SPI_BAUDRATE_128 (6 << 3)
 #define SPI_BAUDRATE_256 (7 << 3)
 
-#define SPI_CLOCKPOLARITY_Lo (0U)
-#define SPI_CLOCKPOLARITY_Hi (1 << 1)
+#define SPI_CLOCKPOLARITY_LO (0U)
+#define SPI_CLOCKPOLARITY_HI (1 << 1)
 
 #define SPI_CLOCKPHASE_EDGE1 (0U)
 #define SPI_CLOCKPHASE_EDGE2 (1)
@@ -120,5 +119,5 @@ Communication line can have.*/
 void SPI_Init(SPI_TypeDef *SPIx, SPI_Config *SPI_Config);
 void SPI_DeInit(SPI_TypeDef *SPIx);
 
-void SPI_Transmit(SPI_TypeDef *SPIx, uint16_t *Data, uint32_t Size);
+void SPI_Transmit(SPI_TypeDef *SPIx, uint8_t *Data, uint32_t Size);
 void SPI_Receive(SPI_TypeDef *SPIx, uint8_t *Data, uint32_t Size);

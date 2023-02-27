@@ -67,7 +67,6 @@ void GPIO_InteruptEnable(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, EXTI_Config *EX
         SYSCFG->EXTICR[index] |= (GPIOx_TO_NUMBER(GPIOx) << offset * 4U);
         EXTI->IMR |= (1 << GPIO_Pin);
 
-
         index = IRQ_Num / 32;
         offset = IRQ_Num % 32;
         NVIC->ISER[index] |= (1 << offset);
@@ -80,10 +79,7 @@ void GPIO_InteruptEnable(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, EXTI_Config *EX
     }else{
         EXTI->FTSR |= (1 << GPIO_Pin);
     }
-    
-
-
-};
+}
 
 void GPIO_DeInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
     GPIOx->MODER &= ~(GPIO_MODE << (GPIO_PIN * 2U));
@@ -101,19 +97,19 @@ void GPIO_DeInit(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
     }else{
         GPIOx->AFR[1] &= ~(GPIO_ALT << (GPIO_PIN * 4U));
     }
-};
+}
 
 void GPIO_Write(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN, GPIO_PinState value){
     GPIOx->ODR |= value << GPIO_PIN;
-};
+}
 
 void GPIO_Toggle(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
     GPIOx->ODR ^= 1 << GPIO_PIN;
-};
+}
 
 GPIO_PinState GPIO_GetState(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
     return GPIOx->IDR & (1 << GPIO_PIN);
-};
+}
 
 //Bug: An and with the max bits a register can hold does not equal an integer like GPIO_MODE_ALTERNATE
 GPIO_PinState GPIO_GetOutput(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
@@ -122,4 +118,5 @@ GPIO_PinState GPIO_GetOutput(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN){
     {
         return GPIOx->ODR & (1 << GPIO_PIN);
     }
-};
+    return 0;
+}
