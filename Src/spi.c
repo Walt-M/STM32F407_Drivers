@@ -47,7 +47,7 @@ void SPI_Transmit(SPI_TypeDef *SPIx, uint8_t *Data, uint32_t Size)
         }
 
         //Writting to DR envokes the SPI transmitting protocol.
-        SPIx->DR = data_temp;
+        SPIx->DR |= data_temp;
     }
 }
 

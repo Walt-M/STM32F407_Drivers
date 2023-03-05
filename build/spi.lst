@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
   48              		.loc 1 8 9 is_stmt 0 view .LVU8
   49 000e 0368     		ldr	r3, [r0]
   50              		.loc 1 8 28 view .LVU9
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 2
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 2
 
 
   51 0010 CA68     		ldr	r2, [r1, #12]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
   99 0040 8A69     		ldr	r2, [r1, #24]
  100              		.loc 1 14 15 view .LVU34
  101 0042 1343     		orrs	r3, r3, r2
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 3
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 3
 
 
  102 0044 0360     		str	r3, [r0]
@@ -178,32 +178,31 @@ ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
   23:Src/spi.c     **** void SPI_Transmit(SPI_TypeDef *SPIx, uint8_t *Data, uint32_t Size)
   24:Src/spi.c     **** {
  152              		.loc 1 24 1 is_stmt 1 view -0
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 4
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 4
 
 
  153              		.cfi_startproc
  154              		@ args = 0, pretend = 0, frame = 8
  155              		@ frame_needed = 0, uses_anonymous_args = 0
- 156              		@ link register save eliminated.
   25:Src/spi.c     ****     volatile uint16_t data_temp;
- 157              		.loc 1 25 5 view .LVU46
+ 156              		.loc 1 25 5 view .LVU46
   26:Src/spi.c     **** 
   27:Src/spi.c     ****     while (Size > 0)
- 158              		.loc 1 27 5 view .LVU47
- 159              		.loc 1 27 17 view .LVU48
- 160 0000 5AB3     		cbz	r2, .L11
+ 157              		.loc 1 27 5 view .LVU47
+ 158              		.loc 1 27 17 view .LVU48
+ 159 0000 72B3     		cbz	r2, .L11
   24:Src/spi.c     ****     volatile uint16_t data_temp;
- 161              		.loc 1 24 1 is_stmt 0 view .LVU49
- 162 0002 10B4     		push	{r4}
- 163              	.LCFI0:
- 164              		.cfi_def_cfa_offset 4
- 165              		.cfi_offset 4, -4
- 166 0004 83B0     		sub	sp, sp, #12
- 167              	.LCFI1:
- 168              		.cfi_def_cfa_offset 16
- 169 0006 06E0     		b	.L7
- 170              	.LVL3:
- 171              	.L6:
+ 160              		.loc 1 24 1 is_stmt 0 view .LVU49
+ 161 0002 00B5     		push	{lr}
+ 162              	.LCFI0:
+ 163              		.cfi_def_cfa_offset 4
+ 164              		.cfi_offset 14, -4
+ 165 0004 83B0     		sub	sp, sp, #12
+ 166              	.LCFI1:
+ 167              		.cfi_def_cfa_offset 16
+ 168 0006 08E0     		b	.L7
+ 169              	.LVL3:
+ 170              	.L6:
   28:Src/spi.c     ****     { 
   29:Src/spi.c     ****         data_temp = 0x0000;
   30:Src/spi.c     **** 
@@ -226,117 +225,117 @@ ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
   47:Src/spi.c     ****         }
   48:Src/spi.c     **** 
   49:Src/spi.c     ****         //Writting to DR envokes the SPI transmitting protocol.
-  50:Src/spi.c     ****         SPIx->DR = data_temp;
- 172              		.loc 1 50 9 is_stmt 1 view .LVU50
- 173              		.loc 1 50 18 is_stmt 0 view .LVU51
- 174 0008 BDF80620 		ldrh	r2, [sp, #6]
- 175 000c 92B2     		uxth	r2, r2
- 176 000e C260     		str	r2, [r0, #12]
- 177 0010 6246     		mov	r2, ip
- 178 0012 1946     		mov	r1, r3
+  50:Src/spi.c     ****         SPIx->DR |= data_temp;
+ 171              		.loc 1 50 9 is_stmt 1 view .LVU50
+ 172 0008 BDF80630 		ldrh	r3, [sp, #6]
+ 173 000c 9BB2     		uxth	r3, r3
+ 174              		.loc 1 50 13 is_stmt 0 view .LVU51
+ 175 000e C268     		ldr	r2, [r0, #12]
+ 176              		.loc 1 50 18 view .LVU52
+ 177 0010 1343     		orrs	r3, r3, r2
+ 178 0012 C360     		str	r3, [r0, #12]
+ 179 0014 7246     		mov	r2, lr
+ 180 0016 6146     		mov	r1, ip
   27:Src/spi.c     ****     { 
- 179              		.loc 1 27 17 is_stmt 1 view .LVU52
- 180 0014 EAB1     		cbz	r2, .L12
- 181              	.LVL4:
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 5
+ 181              		.loc 1 27 17 is_stmt 1 view .LVU53
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 5
 
 
- 182              	.L7:
+ 182 0018 FAB1     		cbz	r2, .L12
+ 183              	.LVL4:
+ 184              	.L7:
   29:Src/spi.c     **** 
- 183              		.loc 1 29 9 view .LVU53
+ 185              		.loc 1 29 9 view .LVU54
   29:Src/spi.c     **** 
- 184              		.loc 1 29 19 is_stmt 0 view .LVU54
- 185 0016 0023     		movs	r3, #0
- 186 0018 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 186              		.loc 1 29 19 is_stmt 0 view .LVU55
+ 187 001a 0023     		movs	r3, #0
+ 188 001c ADF80630 		strh	r3, [sp, #6]	@ movhi
   31:Src/spi.c     ****         {
- 187              		.loc 1 31 9 is_stmt 1 view .LVU55
- 188              	.L5:
+ 189              		.loc 1 31 9 is_stmt 1 view .LVU56
+ 190              	.L5:
   34:Src/spi.c     **** 
- 189              		.loc 1 34 9 discriminator 1 view .LVU56
+ 191              		.loc 1 34 9 discriminator 1 view .LVU57
   31:Src/spi.c     ****         {
- 190              		.loc 1 31 43 discriminator 1 view .LVU57
+ 192              		.loc 1 31 43 discriminator 1 view .LVU58
   31:Src/spi.c     ****         {
- 191              		.loc 1 31 21 is_stmt 0 discriminator 1 view .LVU58
- 192 001c 8368     		ldr	r3, [r0, #8]
+ 193              		.loc 1 31 21 is_stmt 0 discriminator 1 view .LVU59
+ 194 0020 8368     		ldr	r3, [r0, #8]
   31:Src/spi.c     ****         {
- 193              		.loc 1 31 43 discriminator 1 view .LVU59
- 194 001e 13F0020F 		tst	r3, #2
- 195 0022 FBD1     		bne	.L5
+ 195              		.loc 1 31 43 discriminator 1 view .LVU60
+ 196 0022 13F0020F 		tst	r3, #2
+ 197 0026 FBD0     		beq	.L5
   37:Src/spi.c     ****         Size--;
- 196              		.loc 1 37 9 is_stmt 1 view .LVU60
+ 198              		.loc 1 37 9 is_stmt 1 view .LVU61
   37:Src/spi.c     ****         Size--;
- 197              		.loc 1 37 21 is_stmt 0 view .LVU61
- 198 0024 0B46     		mov	r3, r1
- 199 0026 13F8014B 		ldrb	r4, [r3], #1	@ zero_extendqisi2
+ 199              		.loc 1 37 21 is_stmt 0 view .LVU62
+ 200 0028 8C46     		mov	ip, r1
+ 201 002a 1CF8013B 		ldrb	r3, [ip], #1	@ zero_extendqisi2
   37:Src/spi.c     ****         Size--;
- 200              		.loc 1 37 19 view .LVU62
- 201 002a ADF80640 		strh	r4, [sp, #6]	@ movhi
+ 202              		.loc 1 37 19 view .LVU63
+ 203 002e ADF80630 		strh	r3, [sp, #6]	@ movhi
   38:Src/spi.c     ****         Data++;
- 202              		.loc 1 38 9 is_stmt 1 view .LVU63
+ 204              		.loc 1 38 9 is_stmt 1 view .LVU64
   38:Src/spi.c     ****         Data++;
- 203              		.loc 1 38 13 is_stmt 0 view .LVU64
- 204 002e 02F1FF3C 		add	ip, r2, #-1
- 205              	.LVL5:
+ 205              		.loc 1 38 13 is_stmt 0 view .LVU65
+ 206 0032 02F1FF3E 		add	lr, r2, #-1
+ 207              	.LVL5:
   39:Src/spi.c     **** 
- 206              		.loc 1 39 9 is_stmt 1 view .LVU65
+ 208              		.loc 1 39 9 is_stmt 1 view .LVU66
   42:Src/spi.c     ****         {
- 207              		.loc 1 42 9 view .LVU66
+ 209              		.loc 1 42 9 view .LVU67
   42:Src/spi.c     ****         {
- 208              		.loc 1 42 18 is_stmt 0 view .LVU67
- 209 0032 0468     		ldr	r4, [r0]
+ 210              		.loc 1 42 18 is_stmt 0 view .LVU68
+ 211 0036 0368     		ldr	r3, [r0]
   42:Src/spi.c     ****         {
- 210              		.loc 1 42 12 view .LVU68
- 211 0034 14F4006F 		tst	r4, #2048
- 212 0038 E6D0     		beq	.L6
+ 212              		.loc 1 42 12 view .LVU69
+ 213 0038 13F4006F 		tst	r3, #2048
+ 214 003c E4D0     		beq	.L6
   44:Src/spi.c     ****             Size--;
- 213              		.loc 1 44 13 is_stmt 1 view .LVU69
+ 215              		.loc 1 44 13 is_stmt 1 view .LVU70
   44:Src/spi.c     ****             Size--;
- 214              		.loc 1 44 37 is_stmt 0 view .LVU70
- 215 003a 4C78     		ldrb	r4, [r1, #1]	@ zero_extendqisi2
-  44:Src/spi.c     ****             Size--;
- 216              		.loc 1 44 23 view .LVU71
- 217 003c BDF80630 		ldrh	r3, [sp, #6]
+ 216              		.loc 1 44 37 is_stmt 0 view .LVU71
+ 217 003e 91F801C0 		ldrb	ip, [r1, #1]	@ zero_extendqisi2
  218              	.LVL6:
   44:Src/spi.c     ****             Size--;
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 6
-
-
  219              		.loc 1 44 23 view .LVU72
- 220 0040 9BB2     		uxth	r3, r3
- 221 0042 43EA0423 		orr	r3, r3, r4, lsl #8
- 222 0046 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 6
+
+
+ 220 0042 BDF80630 		ldrh	r3, [sp, #6]
+ 221 0046 9BB2     		uxth	r3, r3
+ 222 0048 43EA0C23 		orr	r3, r3, ip, lsl #8
+ 223 004c ADF80630 		strh	r3, [sp, #6]	@ movhi
   45:Src/spi.c     ****             Data++;
- 223              		.loc 1 45 13 is_stmt 1 view .LVU73
+ 224              		.loc 1 45 13 is_stmt 1 view .LVU73
   45:Src/spi.c     ****             Data++;
- 224              		.loc 1 45 17 is_stmt 0 view .LVU74
- 225 004a A2F1020C 		sub	ip, r2, #2
- 226              	.LVL7:
+ 225              		.loc 1 45 17 is_stmt 0 view .LVU74
+ 226 0050 A2F1020E 		sub	lr, r2, #2
+ 227              	.LVL7:
   46:Src/spi.c     ****         }
- 227              		.loc 1 46 13 is_stmt 1 view .LVU75
+ 228              		.loc 1 46 13 is_stmt 1 view .LVU75
   46:Src/spi.c     ****         }
- 228              		.loc 1 46 17 is_stmt 0 view .LVU76
- 229 004e 8B1C     		adds	r3, r1, #2
- 230              	.LVL8:
+ 229              		.loc 1 46 17 is_stmt 0 view .LVU76
+ 230 0054 01F1020C 		add	ip, r1, #2
+ 231              	.LVL8:
   46:Src/spi.c     ****         }
- 231              		.loc 1 46 17 view .LVU77
- 232 0050 DAE7     		b	.L6
- 233              	.LVL9:
- 234              	.L12:
+ 232              		.loc 1 46 17 view .LVU77
+ 233 0058 D6E7     		b	.L6
+ 234              	.LVL9:
+ 235              	.L12:
   51:Src/spi.c     ****     }
   52:Src/spi.c     **** }
- 235              		.loc 1 52 1 view .LVU78
- 236 0052 03B0     		add	sp, sp, #12
- 237              	.LCFI2:
- 238              		.cfi_def_cfa_offset 4
- 239              		@ sp needed
- 240 0054 5DF8044B 		ldr	r4, [sp], #4
- 241              	.LCFI3:
- 242              		.cfi_restore 4
- 243              		.cfi_def_cfa_offset 0
- 244 0058 7047     		bx	lr
- 245              	.L11:
+ 236              		.loc 1 52 1 view .LVU78
+ 237 005a 03B0     		add	sp, sp, #12
+ 238              	.LCFI2:
+ 239              		.cfi_def_cfa_offset 4
+ 240              		@ sp needed
+ 241 005c 5DF804FB 		ldr	pc, [sp], #4
+ 242              	.L11:
+ 243              	.LCFI3:
+ 244              		.cfi_def_cfa_offset 0
+ 245              		.cfi_restore 14
  246              		.loc 1 52 1 view .LVU79
- 247 005a 7047     		bx	lr
+ 247 0060 7047     		bx	lr
  248              		.cfi_endproc
  249              	.LFE132:
  251              		.section	.text.SPI_Receive,"ax",%progbits
@@ -358,10 +357,10 @@ ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
  263              		@ args = 0, pretend = 0, frame = 0
  264              		@ frame_needed = 0, uses_anonymous_args = 0
  265              		.loc 1 57 1 is_stmt 0 view .LVU81
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 7
-
-
  266 0000 8C46     		mov	ip, r1
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 7
+
+
   58:Src/spi.c     ****     uint16_t data_temp;
  267              		.loc 1 58 5 is_stmt 1 view .LVU82
   59:Src/spi.c     **** 
@@ -418,10 +417,10 @@ ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
   74:Src/spi.c     ****         Data++;
  300              		.loc 1 74 9 is_stmt 1 view .LVU97
   75:Src/spi.c     **** 
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 8
-
-
   76:Src/spi.c     ****         //If SPI is set to 16 bit, set the second byte.
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 8
+
+
   77:Src/spi.c     ****         if ((SPIx->CR1 & SPI_DATAFRAME) == SPI_DATAFRAME_16BIT)
  301              		.loc 1 77 9 view .LVU98
  302              		.loc 1 77 18 is_stmt 0 view .LVU99
@@ -478,10 +477,10 @@ ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
  335 003a F5E7     		b	.L16
  336              	.LVL19:
  337              	.L21:
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 9
-
-
  338              	.LCFI5:
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 9
+
+
  339              		.cfi_def_cfa_offset 0
  340              		.cfi_restore 4
  341              		.cfi_restore 14
@@ -496,18 +495,18 @@ ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 1
  350              		.file 3 "c:\\users\\walte\\tools\\arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-arm-none-eabi\\arm-no
  351              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
  352              		.file 5 "Inc/spi.h"
-ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s 			page 10
+ARM GAS  C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s:21     .text.SPI_Init:00000000 $t
-C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s:27     .text.SPI_Init:00000000 SPI_Init
-C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s:117    .text.SPI_DeInit:00000000 $t
-C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s:123    .text.SPI_DeInit:00000000 SPI_DeInit
-C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s:143    .text.SPI_Transmit:00000000 $t
-C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s:149    .text.SPI_Transmit:00000000 SPI_Transmit
-C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s:252    .text.SPI_Receive:00000000 $t
-C:\Users\Walte\AppData\Local\Temp\ccFQEW0o.s:258    .text.SPI_Receive:00000000 SPI_Receive
+C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s:21     .text.SPI_Init:00000000 $t
+C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s:27     .text.SPI_Init:00000000 SPI_Init
+C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s:117    .text.SPI_DeInit:00000000 $t
+C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s:123    .text.SPI_DeInit:00000000 SPI_DeInit
+C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s:143    .text.SPI_Transmit:00000000 $t
+C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s:149    .text.SPI_Transmit:00000000 SPI_Transmit
+C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s:252    .text.SPI_Receive:00000000 $t
+C:\Users\Walte\AppData\Local\Temp\ccWAmzUr.s:258    .text.SPI_Receive:00000000 SPI_Receive
 
 NO UNDEFINED SYMBOLS

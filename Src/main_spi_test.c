@@ -36,7 +36,7 @@ int main(void)
     accel_spi_setup->DataFrame = SPI_DATAFRAME_8BIT;
     accel_spi_setup->SSM = SPI_SSM_ENABLE;
     accel_spi_setup->SigBitFrame = SPI_SIGFIGFRAME_MSB;
-    accel_spi_setup->BaudRate = SPI_BAUDRATE_16;
+    accel_spi_setup->BaudRate = SPI_BAUDRATE_256;
     accel_spi_setup->ClockPolarity = SPI_CLOCKPOLARITY_HI;
     accel_spi_setup->ClockPhase = SPI_CLOCKPHASE_EDGE2;
 
